@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MyHealthBot Chatbot</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+      padding: 20px;
+    }
+    .chatbox {
+      border: 2px solid #ddd;
+      width: 400px;
+      padding: 20px;
+      margin: 20px auto;
+      background-color: white;
+    }
+    input[type="text"] {
+      width: 80%;
+      padding: 10px;
+    }
+    button {
+      padding: 10px 20px;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #45a049;
+    }
+    .messages {
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+
+  <h2 style="text-align: center;">MyHealthBot Chatbot</h2>
+
+  <div class="chatbox">
+    <div class="messages" id="messages"></div>
+
+    <input type="text" id="symptoms" placeholder="Enter your symptoms" />
+    <button onclick="sendMessage()">Get Advice</button>
+  </div>
+
+  <script>
+    function sendMessage() {
+      let symptoms = document.getElementById('symptoms').value;
+      if (symptoms.trim() === '') {
+        alert("Please enter symptoms!");
+        return;
+      }
+
+      document.getElementById('messages').innerHTML += "<div><strong>You:</strong> " + symptoms + "</div>";
+
+      // For now, let's just display a message.
+      setTimeout(() => {
+        let response = "Based on your symptoms, I suggest you consult a doctor.";
+        document.getElementById('messages').innerHTML += "<div><strong>Bot:</strong> " + response + "</div>";
+      }, 1000);
+    }
+  </script>
+  
+</body>
+</html>
